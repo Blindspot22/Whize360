@@ -61,7 +61,7 @@ The Financial Wellness App is a comprehensive personal finance management tool d
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/blindspot22/financial-wellness-app.git
+   git clone https://github.com/Blindspot22/financial-wellness-app.git
    cd financial-wellness-app
    ```
 
