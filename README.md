@@ -1,7 +1,5 @@
 # Financial Wellness App
 
-![App Logo](will soon be uploaded)
-
 ## Overview
 
 The Financial Wellness App is a comprehensive personal finance management tool designed to empower users with budgeting, investment advice, and credit score monitoring features. This README provides essential information for developers, contributors, and users to understand, contribute, and use the app effectively.
@@ -63,7 +61,7 @@ The Financial Wellness App is a comprehensive personal finance management tool d
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/financial-wellness-app.git
+   git clone https://github.com/blindspot22/financial-wellness-app.git
    cd financial-wellness-app
    ```
 
@@ -80,7 +78,6 @@ The Financial Wellness App is a comprehensive personal finance management tool d
    ```env
    PORT=3000
    MONGODB_URI=mongodb://localhost:27017/financial_wellness
-   SECRET_KEY=mysecretkey
    ```
 
 4. Start the app:
@@ -118,6 +115,6 @@ Detailed documentation, including API documentation and user guides, can be foun
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [GNU License](LICENSE).
 
 ---
