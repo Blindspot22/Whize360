@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Tolerance Questionnaire</title>
+<style>
+    /* Basic CSS for styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    .question {
+        margin-bottom: 20px;
+    }
+    .question p {
+        margin: 0;
+    }
+    .question input[type="radio"] {
+        margin-right: 5px;
+    }
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Risk Tolerance Questionnaire</h1>
+    <form id="questionnaireForm">
+        <div class="question">
+            <h2>Question 1</h2>
+            <p>How would you describe your investment horizon?</p>
+            <label><input type="radio" name="q1" value="short_term"> Short-term (less than 5 years)</label><br>
+            <label><input type="radio" name="q1" value="medium_term"> Medium-term (5-10 years)</label><br>
+            <label><input type="radio" name="q1" value="long_term"> Long-term (more than 10 years)</label>
+        </div>
+        <div class="question">
+            <h2>Question 2</h2>
+            <p>How comfortable are you with taking investment risks?</p>
+            <label><input type="radio" name="q2" value="low"> Low risk tolerance</label><br>
+            <label><input type="radio" name="q2" value="medium"> Medium risk tolerance</label><br>
+            <label><input type="radio" name="q2" value="high"> High risk tolerance</label>
+        </div>
+        <div class="question">
+            <h2>Question 3</h2>
+            <p>What is your primary investment goal?</p>
+            <label><input type="radio" name="q3" value="capital_preservation"> Capital preservation</label><br>
+            <label><input type="radio" name="q3" value="wealth_growth"> Wealth growth</label><br>
+            <label><input type="radio" name="q3" value="income_generation"> Income generation</label>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+
+<script>
+    // Function to handle form submission
+    document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        const formData = new FormData(this); // Get form data
+        const responses = {};
+        for (const [key, value] of formData.entries()) {
+            responses[key] = value;
+        }
+        console.log('Questionnaire Responses:', responses);
+        // Here, you would typically send the responses to the server for storage and processing
+        // For demonstration purposes, we're just logging them to the console
+    });
+</script>
+</body>
+</html>
