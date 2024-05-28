@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+
+# Build
+build/
+dist/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Mac
+.DS_Store
+
+# IDE
+.idea/
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+npm-shrinkwrap.json

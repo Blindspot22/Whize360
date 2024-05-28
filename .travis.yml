@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "14"  # specify the Node.js version you want to use
+services:
+  - mongodb  # if you need MongoDB for your tests
+cache:
+  yarn: true
+  directories:
+    - node_modules
+install:
+  - yarn install
+script:
+  - yarn lint  # Run linting scripts
+  - yarn test  # Run tests
