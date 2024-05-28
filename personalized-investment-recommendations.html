@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Investment Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personalized Investment Recommendations</h1>
+        <form id="riskToleranceForm">
+            <h2>Risk Tolerance Questionnaire</h2>
+            <label for="riskTolerance">On a scale of 1 to 10, how risk-averse are you?</label>
+            <input type="number" id="riskTolerance" name="riskTolerance" min="1" max="10" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="recommendations" class="hidden">
+            <h2>Investment Recommendations</h2>
+            <p id="recommendationText">Based on your risk tolerance, we recommend...</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('riskToleranceForm');
+            const recommendationsDiv = document.getElementById('recommendations');
+            const recommendationText = document.getElementById('recommendationText');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const riskTolerance = parseInt(document.getElementById('riskTolerance').value);
+
+                // Make a request to the backend to get personalized investment recommendations based on risk tolerance
+                // For this simplified example, we'll generate a basic recommendation based on risk tolerance
+                const recommendation = generateRecommendation(riskTolerance);
+
+                // Display the recommendation
+                recommendationsDiv.classList.remove('hidden');
+                recommendationText.textContent = recommendation;
+            });
+
+            function generateRecommendation(riskTolerance) {
+                if (riskTolerance >= 8) {
+                    return "Given your high risk tolerance, we recommend investing in a diversified portfolio with a mix of stocks, bonds, and alternative investments.";
+                } else if (riskTolerance >= 5) {
+                    return "With a moderate risk tolerance, you may consider a balanced portfolio with a mix of stocks and bonds.";
+                } else {
+                    return "Considering your low risk tolerance, a conservative investment strategy focusing on fixed-income securities might be suitable.";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

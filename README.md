@@ -71,23 +71,6 @@ The Financial Wellness App is a comprehensive personal finance management tool d
    npm install
    ```
 
-3. Set up environment variables:
-
-   Create a `.env` file in the root directory and configure variables:
-
-   ```env
-   PORT=3000
-   MONGODB_URI=mongodb://localhost:27017/financial_wellness
-   ```
-
-4. Start the app:
-
-   ```bash
-   npm start
-   ```
-
-   The app will be accessible at `http://localhost:3000`.
-
 ## Tech Stack
 
 - Frontend: React.js, Redux, Material-UI

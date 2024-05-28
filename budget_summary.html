@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Summary</title>
+<style>
+    /* Basic CSS for styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #a3a3a3;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .summary-section {
+        margin-bottom: 20px;
+    }
+    .summary-section h2 {
+        margin-bottom: 10px;
+    }
+    .summary-section p {
+        margin: 0;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Budget Summary</h1>
+    <div class="summary-section">
+        <h2>Total Income</h2>
+        <p id="total-income">$0.00</p>
+    </div>
+    <div class="summary-section">
+        <h2>Total Expenses</h2>
+        <p id="total-expenses">$0.00</p>
+    </div>
+    <div class="summary-section">
+        <h2>Insights</h2>
+        <p id="budget-insights">Based on your budget performance...</p>
+    </div>
+    <div class="summary-section">
+        <h2>Comparison</h2>
+        <canvas id="budget-comparison-chart" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<script>
+    // Sample data (replace with actual data from the database)
+    const incomeData = [1000, 1500, 1200]; // Sample income for 3 months
+    const expensesData = [800, 900, 1000]; // Sample expenses for 3 months
+    const budgetedAmounts = [1000, 1200, 1100]; // Sample budgeted amounts for 3 months
+
+    // Calculate total income
+    const totalIncome = incomeData.reduce((acc, curr) => acc + curr, 0);
+
+    // Calculate total expenses
+    const totalExpenses = expensesData.reduce((acc, curr) => acc + curr, 0);
+
+    // Display total income and total expenses
+    document.getElementById('total-income').textContent = `$${totalIncome.toFixed(2)}`;
+    document.getElementById('total-expenses').textContent = `$${totalExpenses.toFixed(2)}`;
+
+    // Calculate total budgeted amount
+    const totalBudgetedAmount = budgetedAmounts.reduce((acc, curr) => acc + curr, 0);
+
+    // Calculate total actual spending
+    const totalActualSpending = expensesData.reduce((acc, curr) => acc + curr, 0);
+
+    // Create a comparison chart
+    const ctx = document.getElementById('budget-comparison-chart').getContext('2d');
+    const comparisonChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Month 1', 'Month 2', 'Month 3'],
+            datasets: [
+                {
+                    label: 'Budgeted Amount',
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    data: budgetedAmounts
+                },
+                {
+                    label: 'Actual Spending',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    data: expensesData
+                }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    // Provide insights based on budget performance
+    const insightsParagraph = document.getElementById('budget-insights');
+    if (totalActualSpending > totalBudgetedAmount) {
+        insightsParagraph.textContent = 'You have exceeded your budget.';
+    } else {
+        insightsParagraph.textContent = 'You are within your budget.';
+    }
+</script>
+</body>
+</html>
