@@ -53,7 +53,7 @@ The Financial Wellness App is a comprehensive personal finance management tool d
 
 ### Prerequisites
 
-- Node.js and npm installed (version X.X.X).
+- Node.js and npm installed.
 - MongoDB installed and running locally or remotely.
 
 ### Installation
@@ -61,14 +61,13 @@ The Financial Wellness App is a comprehensive personal finance management tool d
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Blindspot22/financial-wellness-app.git
-   cd financial-wellness-app
+   https://github.com/Blindspot22/Whize360.git
    ```
 
 2. Install dependencies:
 
    ```bash
-   npm install
+   npm install -i
    ```
 
 ## Tech Stack
